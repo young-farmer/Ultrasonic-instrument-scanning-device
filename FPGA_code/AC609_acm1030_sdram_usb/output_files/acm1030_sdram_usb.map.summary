@@ -1,14 +1,14 @@
-Analysis & Synthesis Status : Successful - Fri Jul 07 13:11:42 2023
+Analysis & Synthesis Status : Successful - Sun Oct 29 21:20:16 2023
 Quartus Prime Version : 18.0.0 Build 614 04/24/2018 SJ Standard Edition
 Revision Name : acm1030_sdram_usb
 Top-level Entity Name : uart_scope
 Family : Cyclone IV E
-Total logic elements : 2,886
-    Total combinational functions : 1,908
-    Dedicated logic registers : 2,072
-Total registers : 2072
-Total pins : 94
+Total logic elements : 2,910
+    Total combinational functions : 1,923
+    Dedicated logic registers : 2,085
+Total registers : 2085
+Total pins : 95
 Total virtual pins : 0
-Total memory bits : 196,608
+Total memory bits : 200,704
 Embedded Multiplier 9-bit elements : 0
 Total PLLs : 1

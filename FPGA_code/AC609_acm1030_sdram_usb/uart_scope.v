@@ -52,7 +52,8 @@ module uart_scope(
    fx2_slcs,
 	
 	DAC_DIN,
-	DAC_SCLK
+	DAC_SCLK,
+	led_out
 );
 	
 //###################################################################################################
@@ -67,6 +68,7 @@ module uart_scope(
 	input Rst_n;	/*全局复位，低电平复位*/
 	input Rs232_Rx;	/*串口接收引脚*/
 	output Rs232_Tx;	/*串口发送引脚*/
+	output led_out;
 	input [1:0]Key_in;	/*按键输入*/
 	input in_a;		/*编码器输入*/
 	input in_b;		/*编码器输入*/
@@ -147,6 +149,7 @@ module uart_scope(
    //如果usb_fifo_wrempty没有为1，
    //说明usbfifo还没有读完，需要再给它一点读完的时间直到收到它为0的反馈
    assign fx2_fdata=rw_switch? fx2_fdata1 : 16'dz;
+	assign led_out=1'b0;
    
    assign fx2_faddr=rw_switch ? fx2_faddr1 : fx2_faddr0;
    assign fx2_sloe=rw_switch ? fx2_sloe1 : fx2_sloe0;

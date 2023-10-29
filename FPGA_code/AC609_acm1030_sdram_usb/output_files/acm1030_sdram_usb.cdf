@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(EP4CE10) Path("F:/ARM_FPGA/AC609_acm1030_sdram_usb/output_files/") File("ADDA_23_07_16.jic") MfrSpec(OpMask(1) SEC_Device(EPCS16) Child_OpMask(1 1));
+		Device PartName(EP4CE10F17) Path("F:/Desktop/Ultrasonic instrument scanning device/FPGA_code/AC609_acm1030_sdram_usb/output_files/") File("acm1030_sdram_usb.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 
