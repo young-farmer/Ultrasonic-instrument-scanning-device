@@ -1,7 +1,17 @@
 /*============================================================================
 *
-*	本模块为单路串口字节接收模块,主要用于传输上位机指令
-接收Rs232_Rx->Rx_Byte
+*  LOGIC CORE:          串口单字节接口模块		
+*  MODULE NAME:         Uart_Byte_Rx()
+*  COMPANY:             芯航线电子工作室
+*                       http://xiaomeige.taobao.com
+*	author:					小梅哥
+*	author QQ Group：472607506
+*  REVISION HISTORY:  
+*
+*    Revision 1.0  01/01/2016     Description: Initial Release.
+*
+*  FUNCTIONAL DESCRIPTION:
+*	本模块为单路串口字节接收模块
 ===========================================================================*/
 module Uart_Byte_Rx(
 	Clk,

@@ -1,4 +1,15 @@
 /*============================================================================
+*
+*  LOGIC CORE:          串口发送控制模块		
+*  MODULE NAME:         UART_Tx_Ctrl()
+*  COMPANY:             芯航线电子工作室
+*                       http://xiaomeige.taobao.com
+*	author:					小梅哥
+*	author QQ Group：472607506
+*  REVISION HISTORY:  
+*
+*    Revision 1.0  01/01/2016     Description: Initial Release.
+*
 *  FUNCTIONAL DESCRIPTION:
 *	本模块为串口发送控制模块，主要负责控制串口发送模块进行数据的发送
 ===========================================================================*/
