@@ -1,0 +1,361 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "Rs232_Tx",
+					"strict" : false
+				},
+				{
+					"name" : "led[1]",
+					"strict" : false
+				},
+				{
+					"name" : "ADC_SCLK",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_cke",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_we_n",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_cas_n",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_ras_n",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_ba[0]",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_ba[1]",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_addr[0]",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_addr[1]",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_addr[2]",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_addr[3]",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_addr[4]",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_addr[5]",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_addr[6]",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_addr[7]",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_addr[8]",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_addr[9]",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_addr[10]",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_addr[11]",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_addr[12]",
+					"strict" : false
+				},
+				{
+					"name" : "fx2_clear",
+					"strict" : false
+				},
+				{
+					"name" : "fx2_faddr[1]",
+					"strict" : false
+				},
+				{
+					"name" : "fx2_sloe",
+					"strict" : false
+				},
+				{
+					"name" : "fx2_slwr",
+					"strict" : false
+				},
+				{
+					"name" : "fx2_slrd",
+					"strict" : false
+				},
+				{
+					"name" : "DAC_DIN[0]",
+					"strict" : false
+				},
+				{
+					"name" : "DAC_DIN[1]",
+					"strict" : false
+				},
+				{
+					"name" : "DAC_DIN[2]",
+					"strict" : false
+				},
+				{
+					"name" : "DAC_DIN[3]",
+					"strict" : false
+				},
+				{
+					"name" : "DAC_DIN[4]",
+					"strict" : false
+				},
+				{
+					"name" : "DAC_DIN[5]",
+					"strict" : false
+				},
+				{
+					"name" : "DAC_DIN[6]",
+					"strict" : false
+				},
+				{
+					"name" : "DAC_DIN[7]",
+					"strict" : false
+				},
+				{
+					"name" : "DAC_SCLK",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_dq[0]",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_dq[1]",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_dq[2]",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_dq[3]",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_dq[4]",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_dq[5]",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_dq[6]",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_dq[7]",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_dq[8]",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_dq[9]",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_dq[10]",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_dq[11]",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_dq[12]",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_dq[13]",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_dq[14]",
+					"strict" : false
+				},
+				{
+					"name" : "sdram_dq[15]",
+					"strict" : false
+				},
+				{
+					"name" : "fx2_fdata[0]",
+					"strict" : false
+				},
+				{
+					"name" : "fx2_fdata[1]",
+					"strict" : false
+				},
+				{
+					"name" : "fx2_fdata[2]",
+					"strict" : false
+				},
+				{
+					"name" : "fx2_fdata[3]",
+					"strict" : false
+				},
+				{
+					"name" : "fx2_fdata[4]",
+					"strict" : false
+				},
+				{
+					"name" : "fx2_fdata[5]",
+					"strict" : false
+				},
+				{
+					"name" : "fx2_fdata[6]",
+					"strict" : false
+				},
+				{
+					"name" : "fx2_fdata[7]",
+					"strict" : false
+				},
+				{
+					"name" : "fx2_fdata[8]",
+					"strict" : false
+				},
+				{
+					"name" : "fx2_fdata[9]",
+					"strict" : false
+				},
+				{
+					"name" : "fx2_fdata[10]",
+					"strict" : false
+				},
+				{
+					"name" : "fx2_fdata[11]",
+					"strict" : false
+				},
+				{
+					"name" : "fx2_fdata[12]",
+					"strict" : false
+				},
+				{
+					"name" : "fx2_fdata[13]",
+					"strict" : false
+				},
+				{
+					"name" : "fx2_fdata[14]",
+					"strict" : false
+				},
+				{
+					"name" : "fx2_fdata[15]",
+					"strict" : false
+				},
+				{
+					"name" : "Clk",
+					"strict" : false
+				},
+				{
+					"name" : "Rst_n",
+					"strict" : false
+				},
+				{
+					"name" : "fx2_flagb",
+					"strict" : false
+				},
+				{
+					"name" : "fx2_flagc",
+					"strict" : false
+				},
+				{
+					"name" : "fx2_ifclk",
+					"strict" : false
+				},
+				{
+					"name" : "in_a",
+					"strict" : false
+				},
+				{
+					"name" : "in_b",
+					"strict" : false
+				},
+				{
+					"name" : "ADC_DOUT[0]",
+					"strict" : false
+				},
+				{
+					"name" : "ADC_DOUT[1]",
+					"strict" : false
+				},
+				{
+					"name" : "ADC_DOUT[2]",
+					"strict" : false
+				},
+				{
+					"name" : "ADC_DOUT[3]",
+					"strict" : false
+				},
+				{
+					"name" : "ADC_DOUT[4]",
+					"strict" : false
+				},
+				{
+					"name" : "ADC_DOUT[5]",
+					"strict" : false
+				},
+				{
+					"name" : "ADC_DOUT[6]",
+					"strict" : false
+				},
+				{
+					"name" : "ADC_DOUT[7]",
+					"strict" : false
+				},
+				{
+					"name" : "Rs232_Rx",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tms",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tck",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tdi",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tdo",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Mon Oct 30 12:11:00 2023
+Quartus Prime Version : 18.0.0 Build 614 04/24/2018 SJ Standard Edition
+Revision Name : Ultrasonic_instrument
+Top-level Entity Name : top_level
+Family : Cyclone IV E
+Total logic elements : 2,910
+    Total combinational functions : 1,923
+    Dedicated logic registers : 2,085
+Total registers : 2085
+Total pins : 95
+Total virtual pins : 0
+Total memory bits : 200,704
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 1
