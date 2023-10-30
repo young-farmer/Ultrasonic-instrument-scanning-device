@@ -1,5 +1,5 @@
 Flow report for acm1030_sdram_usb
-Sun Oct 29 21:20:31 2023
+Mon Oct 30 11:56:37 2023
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Standard Edition
 
 
@@ -40,10 +40,10 @@ refer to the applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Flow Summary                                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Flow Status                        ; Successful - Sun Oct 29 21:20:28 2023           ;
+; Flow Status                        ; Successful - Mon Oct 30 11:56:34 2023           ;
 ; Quartus Prime Version              ; 18.0.0 Build 614 04/24/2018 SJ Standard Edition ;
 ; Revision Name                      ; acm1030_sdram_usb                               ;
-; Top-level Entity Name              ; uart_scope                                      ;
+; Top-level Entity Name              ; top_level                                       ;
 ; Family                             ; Cyclone IV E                                    ;
 ; Device                             ; EP4CE10F17C8                                    ;
 ; Timing Models                      ; Final                                           ;
@@ -64,7 +64,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 10/29/2023 21:19:46 ;
+; Start date & time ; 10/30/2023 11:55:52 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; acm1030_sdram_usb   ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+-------------+------------------+
 ; Assignment Name                     ; Value                                                                                                                                            ; Default Value     ; Entity Name ; Section Id       ;
 +-------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+-------------+------------------+
-; COMPILER_SIGNATURE_ID               ; 145862338725117.169858558624756                                                                                                                  ; --                ; --          ; --               ;
+; COMPILER_SIGNATURE_ID               ; 145862338725117.169863815222888                                                                                                                  ; --                ; --          ; --               ;
 ; ENABLE_SIGNALTAP                    ; On                                                                                                                                               ; --                ; --          ; --               ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                                                                                                                               ; --                ; --          ; --               ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                                                                                                                                ; --                ; --          ; --               ;
@@ -87,9 +87,9 @@ refer to the applicable agreement for further details.
 ; OUTPUT_IO_TIMING_FAR_END_VMEAS      ; Half Signal Swing                                                                                                                                ; --                ; --          ; --               ;
 ; OUTPUT_IO_TIMING_NEAR_END_VMEAS     ; Half Vccio                                                                                                                                       ; --                ; --          ; --               ;
 ; OUTPUT_IO_TIMING_NEAR_END_VMEAS     ; Half Vccio                                                                                                                                       ; --                ; --          ; --               ;
-; PARTITION_COLOR                     ; -- (Not supported for targeted family)                                                                                                           ; --                ; uart_scope  ; Top              ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family)                                                                                                           ; --                ; uart_scope  ; Top              ;
-; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family)                                                                                                           ; --                ; uart_scope  ; Top              ;
+; PARTITION_COLOR                     ; -- (Not supported for targeted family)                                                                                                           ; --                ; top_level   ; Top              ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family)                                                                                                           ; --                ; top_level   ; Top              ;
+; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family)                                                                                                           ; --                ; top_level   ; Top              ;
 ; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                                                                                                                              ; --                ; --          ; --               ;
 ; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW                                                                                                            ; --                ; --          ; --               ;
 ; PROJECT_OUTPUT_DIRECTORY            ; output_files                                                                                                                                     ; --                ; --          ; --               ;
@@ -121,7 +121,7 @@ refer to the applicable agreement for further details.
 ; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_STORAGE_QUALIFIER_BITS=33                                                                                                                    ; --                ; --          ; auto_signaltap_0 ;
 ; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_INVERSION_MASK=00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 ; --                ; --          ; auto_signaltap_0 ;
 ; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_INVERSION_MASK_LENGTH=125                                                                                                                    ; --                ; --          ; auto_signaltap_0 ;
-; TOP_LEVEL_ENTITY                    ; uart_scope                                                                                                                                       ; acm1030_sdram_usb ; --          ; --               ;
+; TOP_LEVEL_ENTITY                    ; top_level                                                                                                                                        ; acm1030_sdram_usb ; --          ; --               ;
 ; USE_SIGNALTAP_FILE                  ; output_files/stp1.stp                                                                                                                            ; --                ; --          ; --               ;
 +-------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+-------------+------------------+
 
@@ -131,11 +131,11 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:30     ; 1.0                     ; 4870 MB             ; 00:00:40                           ;
-; Fitter               ; 00:00:07     ; 1.1                     ; 5694 MB             ; 00:00:10                           ;
+; Analysis & Synthesis ; 00:00:30     ; 1.0                     ; 4886 MB             ; 00:00:41                           ;
+; Fitter               ; 00:00:07     ; 1.1                     ; 5688 MB             ; 00:00:10                           ;
 ; Assembler            ; 00:00:02     ; 1.0                     ; 4680 MB             ; 00:00:01                           ;
-; Timing Analyzer      ; 00:00:02     ; 1.2                     ; 4814 MB             ; 00:00:02                           ;
-; Total                ; 00:00:41     ; --                      ; --                  ; 00:00:53                           ;
+; Timing Analyzer      ; 00:00:02     ; 1.3                     ; 4814 MB             ; 00:00:03                           ;
+; Total                ; 00:00:41     ; --                      ; --                  ; 00:00:55                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

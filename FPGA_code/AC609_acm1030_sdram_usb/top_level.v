@@ -1,20 +1,9 @@
 /*============================================================================
 *
-*  LOGIC CORE:          串口示波器顶层模块		
-*  MODULE NAME:         uart_scope()
-*  COMPANY:             芯航线电子工作室
-*                       http://xiaomeige.taobao.com
-*	author:					小梅哥
-*	author QQ Group：472607506
-*  REVISION HISTORY:  
-*
-*    Revision 1.0  01/01/2016     Description: Initial Release.
-*
-*  FUNCTIONAL DESCRIPTION:
-*	本模块为串口示波器顶层模块
+*检测设备FPGA顶层模块
 ===========================================================================*/
 
-module uart_scope(
+module top_level(
 	Clk,
 	Rst_n,
 	Rs232_Rx,

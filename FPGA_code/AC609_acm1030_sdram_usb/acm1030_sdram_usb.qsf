@@ -38,7 +38,7 @@
 
 set_global_assignment -name FAMILY "Cyclone IV E"
 set_global_assignment -name DEVICE EP4CE10F17C8
-set_global_assignment -name TOP_LEVEL_ENTITY uart_scope
+set_global_assignment -name TOP_LEVEL_ENTITY top_level
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 17.1.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "09:35:10  MAY 04, 2023"
 set_global_assignment -name LAST_QUARTUS_VERSION "18.0.0 Standard Edition"
@@ -130,9 +130,6 @@ set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -rise
 set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -fall
 set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -rise
 set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -fall
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_location_assignment PIN_D16 -to ADC_DOUT[5]
 set_location_assignment PIN_F16 -to ADC_DOUT[7]
 set_location_assignment PIN_F15 -to ADC_DOUT[6]
@@ -159,30 +156,6 @@ set_location_assignment PIN_C3 -to Rs232_Tx
 set_location_assignment PIN_N1 -to Rst_n
 set_location_assignment PIN_R6 -to in_a
 set_location_assignment PIN_T6 -to in_b
-set_instance_assignment -name IO_STANDARD "2.5 V" -to ADC_DOUT[7]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to ADC_DOUT[6]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to ADC_DOUT[5]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to ADC_DOUT[4]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to ADC_DOUT[3]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to ADC_DOUT[2]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to ADC_DOUT[1]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to ADC_DOUT[0]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to ADC_SCLK
-set_instance_assignment -name IO_STANDARD "2.5 V" -to Clk
-set_instance_assignment -name IO_STANDARD "2.5 V" -to DAC_DIN[7]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to DAC_DIN[6]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to DAC_DIN[5]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to DAC_DIN[4]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to DAC_DIN[3]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to DAC_DIN[2]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to DAC_DIN[1]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to DAC_DIN[0]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to DAC_SCLK
-set_instance_assignment -name IO_STANDARD "2.5 V" -to Key_in[1]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to Key_in[0]
-set_instance_assignment -name IO_STANDARD "2.5 V" -to Rs232_Rx
-set_instance_assignment -name IO_STANDARD "2.5 V" -to Rs232_Tx
-set_instance_assignment -name IO_STANDARD "2.5 V" -to Rst_n
 set_global_assignment -name ENABLE_SIGNALTAP ON
 set_global_assignment -name USE_SIGNALTAP_FILE output_files/stp1.stp
 set_global_assignment -name SLD_NODE_CREATOR_ID 110 -section_id auto_signaltap_0
@@ -289,7 +262,6 @@ set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_ADVANCED_TRIGGER_
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_TRIGGER_LEVEL_PIPELINE=1" -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_ENABLE_ADVANCED_TRIGGER=0" -section_id auto_signaltap_0
 set_global_assignment -name SOURCE_FILE rtl/sdram/Sdram_Params.h
-set_global_assignment -name VERILOG_FILE uart_scope.v
 set_global_assignment -name VERILOG_FILE rtl/UART_Tx_Ctrl.v
 set_global_assignment -name VERILOG_FILE rtl/tlv5618.v
 set_global_assignment -name VERILOG_FILE rtl/Sample_Ctrl.v
@@ -322,8 +294,6 @@ set_global_assignment -name QIP_FILE ip/fifo_rd/fifo_rd.qip
 set_global_assignment -name QIP_FILE ip/fifo_wr/fifo_wr.qip
 set_global_assignment -name QIP_FILE ip/fifo/fifo.qip
 set_global_assignment -name SIGNALTAP_FILE output_files/stp1.stp
-set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to in_b
-set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to in_a
 set_global_assignment -name VERILOG_FILE rtl/ch_sel.v
 set_location_assignment PIN_N2 -to led_out
 set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[32] -to led_out -section_id auto_signaltap_0
@@ -349,5 +319,35 @@ set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[28] -
 set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[29] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
 set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[30] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
 set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[31] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_instance_assignment -name IO_STANDARD "2.5 V" -to ADC_DOUT[7]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to ADC_DOUT[6]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to ADC_DOUT[5]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to ADC_DOUT[4]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to ADC_DOUT[3]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to ADC_DOUT[2]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to ADC_DOUT[1]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to ADC_DOUT[0]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to ADC_SCLK
+set_instance_assignment -name IO_STANDARD "2.5 V" -to Clk
+set_instance_assignment -name IO_STANDARD "2.5 V" -to DAC_DIN[7]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to DAC_DIN[6]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to DAC_DIN[5]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to DAC_DIN[4]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to DAC_DIN[3]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to DAC_DIN[2]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to DAC_DIN[1]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to DAC_DIN[0]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to DAC_SCLK
+set_instance_assignment -name IO_STANDARD "2.5 V" -to Key_in[1]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to Key_in[0]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to Rs232_Rx
+set_instance_assignment -name IO_STANDARD "2.5 V" -to Rs232_Tx
+set_instance_assignment -name IO_STANDARD "2.5 V" -to Rst_n
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to in_b
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to in_a
+set_global_assignment -name VERILOG_FILE top_level.v
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
 set_global_assignment -name SLD_FILE db/stp1_auto_stripped.stp

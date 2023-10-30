@@ -1,16 +1,5 @@
 /*============================================================================
 *
-*  LOGIC CORE:          DDS信号发生器顶层模块		
-*  MODULE NAME:         DDS()
-*  COMPANY:             芯航线电子工作室
-*                       http://xiaomeige.taobao.com
-*	author:					小梅哥
-*	author QQ Group：472607506
-*  REVISION HISTORY:  
-*
-*    Revision 1.0  01/01/2016     Description: Initial Release.
-*
-*  FUNCTIONAL DESCRIPTION:
 *	本模块为DDS信号发生器顶层模块，实现与主机的通信并控制DDS信号发生器生成指定要求的信号
 ===========================================================================*/
 `include "header.v"
@@ -59,9 +48,9 @@ module DDS(Clk,Rst_n,m_wr,m_addr,m_wrdata,DDS_Data,DDS_Flag,Uart_Flag);
 
 	always@(posedge Clk or negedge Rst_n)
 	if(!Rst_n)begin
-		reg_Fword_L <= 16'd4784;	/*复位时设置频率为10Hz*///0001001010110000
-		//10000011
-		reg_Fword_H <= 16'd131;//131
+		reg_Fword_L <= 16'd4784;//0001001010110000
+		
+		reg_Fword_H <= 16'd131;//10000011
 	end
 	else if(m_wr && (m_addr == `DDS_Fword_L))/*写采样分频计数器计数最大值的低16位*/
 		reg_Fword_L <= m_wrdata;
@@ -91,7 +80,7 @@ module DDS(Clk,Rst_n,m_wr,m_addr,m_wrdata,DDS_Data,DDS_Flag,Uart_Flag);
 	always@(posedge Clk or negedge Rst_n)
 	if(!Rst_n)begin
 		DDS_Sample_Cnt_Max_H <= 16'd0;
-		DDS_Sample_Cnt_Max_L <= 16'd5;/*默认设置采样率为1K*/
+		DDS_Sample_Cnt_Max_L <= 16'd5;/*默认设置采样率为10m*/
 	end
 	else if(m_wr && (m_addr == `DDS_S_Cnt_Max_L))/*写采样分频计数器计数最大值的低16位*/
 		DDS_Sample_Cnt_Max_L <= m_wrdata;

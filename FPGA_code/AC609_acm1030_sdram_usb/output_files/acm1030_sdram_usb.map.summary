@@ -1,7 +1,7 @@
-Analysis & Synthesis Status : Successful - Sun Oct 29 21:20:16 2023
+Analysis & Synthesis Status : Successful - Mon Oct 30 11:56:23 2023
 Quartus Prime Version : 18.0.0 Build 614 04/24/2018 SJ Standard Edition
 Revision Name : acm1030_sdram_usb
-Top-level Entity Name : uart_scope
+Top-level Entity Name : top_level
 Family : Cyclone IV E
 Total logic elements : 2,910
     Total combinational functions : 1,923
