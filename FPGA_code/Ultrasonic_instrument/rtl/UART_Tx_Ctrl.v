@@ -44,8 +44,7 @@ module UART_Tx_Ctrl(
 	always@(posedge Clk or negedge Rst_n)
 	if(!Rst_n)
 		reg_Baud_Set <= 3'd0;	/*设置波特率默认为9600*/
-	else if(m_wr && (m_addr == `UART_Baud_Set))
-		reg_Baud_Set <= m_wrdata[2:0];
+
 	else
 		reg_Baud_Set <= reg_Baud_Set;
 

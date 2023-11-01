@@ -1,0 +1,16 @@
+Fitter Status : Successful - Wed Nov 01 12:30:29 2023
+Quartus Prime Version : 18.0.0 Build 614 04/24/2018 SJ Standard Edition
+Revision Name : AD9226_RGMII
+Top-level Entity Name : AD9226_RGMII
+Family : Cyclone IV E
+Device : EP4CE10F17C8
+Timing Models : Final
+Total logic elements : 2,916 / 10,320 ( 28 % )
+    Total combinational functions : 2,157 / 10,320 ( 21 % )
+    Dedicated logic registers : 1,957 / 10,320 ( 19 % )
+Total registers : 1969
+Total pins : 36 / 180 ( 20 % )
+Total virtual pins : 0
+Total memory bits : 282,112 / 423,936 ( 67 % )
+Embedded Multiplier 9-bit elements : 0 / 46 ( 0 % )
+Total PLLs : 1 / 2 ( 50 % )

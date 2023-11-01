@@ -1,0 +1,165 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "ad_clk1",
+					"strict" : false
+				},
+				{
+					"name" : "ad_clk2",
+					"strict" : false
+				},
+				{
+					"name" : "led",
+					"strict" : false
+				},
+				{
+					"name" : "eth_gtxc",
+					"strict" : false
+				},
+				{
+					"name" : "eth_txd[0]",
+					"strict" : false
+				},
+				{
+					"name" : "eth_txd[1]",
+					"strict" : false
+				},
+				{
+					"name" : "eth_txd[2]",
+					"strict" : false
+				},
+				{
+					"name" : "eth_txd[3]",
+					"strict" : false
+				},
+				{
+					"name" : "eth_txen",
+					"strict" : false
+				},
+				{
+					"name" : "eth_rst_n",
+					"strict" : false
+				},
+				{
+					"name" : "eth_mdc",
+					"strict" : false
+				},
+				{
+					"name" : "eth_mdio",
+					"strict" : false
+				},
+				{
+					"name" : "Clk",
+					"strict" : false
+				},
+				{
+					"name" : "reset_n",
+					"strict" : false
+				},
+				{
+					"name" : "eth_rxd[0]",
+					"strict" : false
+				},
+				{
+					"name" : "eth_rxd[1]",
+					"strict" : false
+				},
+				{
+					"name" : "eth_rxd[2]",
+					"strict" : false
+				},
+				{
+					"name" : "eth_rxd[3]",
+					"strict" : false
+				},
+				{
+					"name" : "eth_rxdv",
+					"strict" : false
+				},
+				{
+					"name" : "ad_in2[4]",
+					"strict" : false
+				},
+				{
+					"name" : "ad_in1[4]",
+					"strict" : false
+				},
+				{
+					"name" : "ad_in2[0]",
+					"strict" : false
+				},
+				{
+					"name" : "ad_in1[0]",
+					"strict" : false
+				},
+				{
+					"name" : "ad_in2[5]",
+					"strict" : false
+				},
+				{
+					"name" : "ad_in1[5]",
+					"strict" : false
+				},
+				{
+					"name" : "ad_in2[1]",
+					"strict" : false
+				},
+				{
+					"name" : "ad_in1[1]",
+					"strict" : false
+				},
+				{
+					"name" : "ad_in2[6]",
+					"strict" : false
+				},
+				{
+					"name" : "ad_in1[6]",
+					"strict" : false
+				},
+				{
+					"name" : "ad_in2[2]",
+					"strict" : false
+				},
+				{
+					"name" : "ad_in1[2]",
+					"strict" : false
+				},
+				{
+					"name" : "ad_in2[7]",
+					"strict" : false
+				},
+				{
+					"name" : "ad_in1[7]",
+					"strict" : false
+				},
+				{
+					"name" : "ad_in2[3]",
+					"strict" : false
+				},
+				{
+					"name" : "ad_in1[3]",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tms",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tck",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tdi",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tdo",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

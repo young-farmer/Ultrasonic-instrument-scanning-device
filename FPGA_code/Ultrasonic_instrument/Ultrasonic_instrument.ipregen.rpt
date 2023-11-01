@@ -1,0 +1,72 @@
+IP Upgrade report for Ultrasonic_instrument
+Mon Oct 30 17:40:18 2023
+Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Standard Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. IP Upgrade Summary
+  3. Successfully Upgraded IP Components
+  4. IP Upgrade Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++--------------------------------------------------------------------------------+
+; IP Upgrade Summary                                                             ;
++------------------------------+-------------------------------------------------+
+; IP Components Upgrade Status ; Passed - Mon Oct 30 17:40:18 2023               ;
+; Quartus Prime Version        ; 18.0.0 Build 614 04/24/2018 SJ Standard Edition ;
+; Revision Name                ; Ultrasonic_instrument                           ;
+; Top-level Entity Name        ; top_level                                       ;
+; Family                       ; Cyclone IV E                                    ;
++------------------------------+-------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------+
+; Successfully Upgraded IP Components                                                                                                         ;
++-------------+----------------+---------+------------------------------+----------------------------+------------------------------+---------+
+; Entity Name ; Component Name ; Version ; Original Source File         ; Generation File Path       ; New Source File              ; Message ;
++-------------+----------------+---------+------------------------------+----------------------------+------------------------------+---------+
+; fifo_tx     ; FIFO           ; 13.0    ; rtl/AD9226_RGMII/fifo_tx.qip ; rtl/AD9226_RGMII/fifo_tx.v ; rtl/AD9226_RGMII/fifo_tx.qip ;         ;
+; fifo_rx     ; FIFO           ; 13.0    ; rtl/AD9226_RGMII/fifo_rx.qip ; rtl/AD9226_RGMII/fifo_rx.v ; rtl/AD9226_RGMII/fifo_rx.qip ;         ;
++-------------+----------------+---------+------------------------------+----------------------------+------------------------------+---------+
+
+
++---------------------+
+; IP Upgrade Messages ;
++---------------------+
+Info (11902): Backing up file "rtl/AD9226_RGMII/fifo_tx.v" to "rtl/AD9226_RGMII/fifo_tx.BAK.v"
+Info (11837): Started upgrading IP component FIFO with file "rtl/AD9226_RGMII/fifo_tx.v"
+Info (11902): Backing up file "rtl/AD9226_RGMII/fifo_rx.v" to "rtl/AD9226_RGMII/fifo_rx.BAK.v"
+Info (11837): Started upgrading IP component FIFO with file "rtl/AD9226_RGMII/fifo_rx.v"
+Info (11131): Completed upgrading IP component FIFO with file "rtl/AD9226_RGMII/fifo_tx.v"
+Info (11131): Completed upgrading IP component FIFO with file "rtl/AD9226_RGMII/fifo_rx.v"
+Info (23030): Evaluation of Tcl script d:/intelfpga/18.0/quartus/common/tcl/internal/ip_regen/ip_regen.tcl was successful
+Info: Quartus Prime Shell was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 4856 megabytes
+    Info: Processing ended: Mon Oct 30 17:40:18 2023
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:17
+
+

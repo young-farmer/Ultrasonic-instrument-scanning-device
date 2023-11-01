@@ -1,11 +1,21 @@
 /*============================================================================
 *
+*  LOGIC CORE:          DDS信号发生器顶层模块		
+*  MODULE NAME:         DDS()
+*  COMPANY:             芯航线电子工作室
+*                       http://xiaomeige.taobao.com
+*	author:					小梅哥
+*	author QQ Group：472607506
+*  REVISION HISTORY:  
+*
+*    Revision 1.0  01/01/2016     Description: Initial Release.
+*
+*  FUNCTIONAL DESCRIPTION:
 *	本模块为DDS信号发生器顶层模块，实现与主机的通信并控制DDS信号发生器生成指定要求的信号
-接收CMD指令->DA
 ===========================================================================*/
 `include "header.v"
 
-module DDS(Clk,Rst_n,m_wr,m_addr,m_wrdata,DDS_Data,DDS_Flag,Uart_Flag);
+module DDS(Clk,Rst_n,m_wr,m_addr,m_wrdata,DDS_Data,DDS_Flag,Uart_Flag,EN_11);
 
 	input Clk;
 	input Rst_n;
@@ -16,11 +26,12 @@ module DDS(Clk,Rst_n,m_wr,m_addr,m_wrdata,DDS_Data,DDS_Flag,Uart_Flag);
 	output [11:0]DDS_Data;
 	output reg DDS_Flag;
 	output reg Uart_Flag;
+	output EN_11;
 	
 	wire [9:0]DA_Data;/*DDS输出，为10位的数据*/
 	
-
-
+	wire EN_1;
+	reg [11:0]time_count;
 	reg DDS_En;/*DDS使能寄存器，ADDR = 8'd6*/
 	reg [15:0]reg_Fword_H;/*DDS频率控制字高16位,ADDR = 8'd7*/
 	reg [15:0]reg_Fword_L;/*DDS频率控制字低16位,ADDR = 8'd8*/
@@ -30,13 +41,16 @@ module DDS(Clk,Rst_n,m_wr,m_addr,m_wrdata,DDS_Data,DDS_Flag,Uart_Flag);
 	DDS_Module DDS_Module(
 		.Clk(Clk),
 		.Rst_n(Rst_n),
+		.time_count(time_count),
 		.EN(DDS_En),
 		.Fword({reg_Fword_H,reg_Fword_L}),
 		.Pword(reg_Pword),
 		.DA_Clk(),
-		.DA_Data(DA_Data)
+		.DA_Data(DA_Data),
+		.EN_1(EN_1)
 	);
 	
+	assign EN_11 =  EN_1;
 	assign DDS_Data =  {DA_Data,2'd0};
 	
 	always@(posedge Clk or negedge Rst_n)
@@ -49,9 +63,9 @@ module DDS(Clk,Rst_n,m_wr,m_addr,m_wrdata,DDS_Data,DDS_Flag,Uart_Flag);
 
 	always@(posedge Clk or negedge Rst_n)
 	if(!Rst_n)begin
-		reg_Fword_L <= 16'd4784;//0001001010110000
-		
-		reg_Fword_H <= 16'd131;//10000011
+		reg_Fword_L <= 16'd4784;	/*复位时设置频率为10Hz*///0001001010110000
+		//10000011
+		reg_Fword_H <= 16'd131;//131
 	end
 	else if(m_wr && (m_addr == `DDS_Fword_L))/*写采样分频计数器计数最大值的低16位*/
 		reg_Fword_L <= m_wrdata;
@@ -81,7 +95,7 @@ module DDS(Clk,Rst_n,m_wr,m_addr,m_wrdata,DDS_Data,DDS_Flag,Uart_Flag);
 	always@(posedge Clk or negedge Rst_n)
 	if(!Rst_n)begin
 		DDS_Sample_Cnt_Max_H <= 16'd0;
-		DDS_Sample_Cnt_Max_L <= 16'd5;/*默认设置采样率为10m*/
+		DDS_Sample_Cnt_Max_L <= 16'd5;/*默认设置采样率为1K*/
 	end
 	else if(m_wr && (m_addr == `DDS_S_Cnt_Max_L))/*写采样分频计数器计数最大值的低16位*/
 		DDS_Sample_Cnt_Max_L <= m_wrdata;
@@ -100,6 +114,15 @@ module DDS(Clk,Rst_n,m_wr,m_addr,m_wrdata,DDS_Data,DDS_Flag,Uart_Flag);
 		DDS_Sample_En <= m_wrdata[0];
 	else
 		DDS_Sample_En <= DDS_Sample_En;
+
+/*---------激励计时信号-------------*/
+	always@(posedge Clk or negedge Rst_n)
+	if(!Rst_n)
+		time_count <= 11'd500;
+	else if(m_wr && (m_addr == `time_count))
+		time_count <= m_wrdata;
+	else
+		time_count <= time_count;
 		
 /*---------采样计数器计数------------*/
 	always@(posedge Clk or negedge Rst_n)

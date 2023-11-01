@@ -1,0 +1,48 @@
+
+State Machine - |AD9226_RGMII|eth_udp_tx_gmii:eth_udp_tx_gmii|curr_state
+Name curr_state.TX_CRC curr_state.TX_FILL_DATA curr_state.TX_DATA curr_state.TX_UDP_HEADER curr_state.TX_IP_HEADER curr_state.TX_ETH_HEADER curr_state.TX_PREAMBLE curr_state.IDLE 
+curr_state.IDLE 0 0 0 0 0 0 0 0 
+curr_state.TX_PREAMBLE 0 0 0 0 0 0 1 1 
+curr_state.TX_ETH_HEADER 0 0 0 0 0 1 0 1 
+curr_state.TX_IP_HEADER 0 0 0 0 1 0 0 1 
+curr_state.TX_UDP_HEADER 0 0 0 1 0 0 0 1 
+curr_state.TX_DATA 0 0 1 0 0 0 0 1 
+curr_state.TX_FILL_DATA 0 1 0 0 0 0 0 1 
+curr_state.TX_CRC 1 0 0 0 0 0 0 1 
+
+State Machine - |AD9226_RGMII|eth_send_ctrl:eth_send_ctrl|state_0
+Name state_0.0000 state_0.0010 state_0.0001 
+state_0.0000 0 0 0 
+state_0.0001 1 0 1 
+state_0.0010 1 1 0 
+
+State Machine - |AD9226_RGMII|eth_send_ctrl:eth_send_ctrl|state
+Name state.0011 state.0010 state.0001 state.0000 
+state.0000 0 0 0 0 
+state.0001 0 0 1 1 
+state.0010 0 1 0 1 
+state.0011 1 0 0 1 
+
+State Machine - |AD9226_RGMII|speed_ctrl:speed_ctrl_0|state
+Name state.0011 state.0010 state.0001 state.0000 
+state.0000 0 0 0 0 
+state.0001 0 0 1 1 
+state.0010 0 1 0 1 
+state.0011 1 0 0 1 
+
+State Machine - |AD9226_RGMII|eth_udp_rx_gmii:eth_udp_rx_gmii|curr_state
+Name curr_state.PKT_CHECK curr_state.RX_CRC curr_state.RX_DRP_DATA curr_state.RX_DATA curr_state.RX_UDP_HEADER curr_state.RX_IP_HEADER curr_state.RX_ETH_HEADER curr_state.RX_PREAMBLE curr_state.IDLE 
+curr_state.IDLE 0 0 0 0 0 0 0 0 0 
+curr_state.RX_PREAMBLE 0 0 0 0 0 0 0 1 1 
+curr_state.RX_ETH_HEADER 0 0 0 0 0 0 1 0 1 
+curr_state.RX_IP_HEADER 0 0 0 0 0 1 0 0 1 
+curr_state.RX_UDP_HEADER 0 0 0 0 1 0 0 0 1 
+curr_state.RX_DATA 0 0 0 1 0 0 0 0 1 
+curr_state.RX_DRP_DATA 0 0 1 0 0 0 0 0 1 
+curr_state.RX_CRC 0 1 0 0 0 0 0 0 1 
+curr_state.PKT_CHECK 1 0 0 0 0 0 0 0 1 
+
+State Machine - |AD9226_RGMII|phy_config:phy_config_inst|state
+Name state.01 
+state.00 0 
+state.01 1 

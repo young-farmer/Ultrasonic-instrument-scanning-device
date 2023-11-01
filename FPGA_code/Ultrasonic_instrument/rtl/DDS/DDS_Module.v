@@ -20,7 +20,9 @@ module DDS_Module(
 		Fword,
 		Pword,
 		DA_Clk,
-		DA_Data
+		DA_Data,
+		time_count,
+		EN_1
 	);
 
 	input Clk;/*系统时钟*/
@@ -28,15 +30,17 @@ module DDS_Module(
 	input EN;/*DDS模块使能*/
 	input [31:0]Fword;/*频率控制字*/
 	input [11:0]Pword;/*相位控制字*/
+	input [11:0]time_count;/*激励延时*/
 	
 	output DA_Clk;/*DA数据输出时钟*/
 	output [9:0]DA_Data;/*D输出输出A*/
+	output reg EN_1;/*使能信号*/
 	
 	reg [31:0]Fre_acc;	
 	reg [11:0]Rom_Addr;
 	wire [11:0]Rom_Addr_r;
 	reg [15:0]count;
-	reg EN_1;
+	//reg EN_1;
 
 
 /*---------------相位累加器------------------*/	
@@ -64,7 +68,7 @@ module DDS_Module(
 	end 
 	else begin
 		count <= count + 1;
-		if (count >= 65000)  // 100个时钟周期后，将out设置为1
+		if (count >= 65530-time_count)  // 23位8388607 16位65530
 			EN_1 <= 1;
 		else 
 			EN_1 <= 0;

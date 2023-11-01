@@ -1,0 +1,3 @@
+Info (10281): Verilog HDL Declaration information at eth_udp_tx_gmii.v(84): object "TX_DATA" differs only in case from object "tx_data" in the same scope File: F:/ARM_FPGA/AC620_AD9226_RGMI/AC620_AD9226_RGMI/rtl/eth_udp_tx_gmii.v Line: 84
+Warning (10268): Verilog HDL information at ad9226_12bit_to_16bit.v(41): always construct contains both blocking and non-blocking assignments File: F:/ARM_FPGA/AC620_AD9226_RGMI/AC620_AD9226_RGMI/rtl/ad9226_12bit_to_16bit.v Line: 41
+Info (10281): Verilog HDL Declaration information at AD9226_RGMII.v(86): object "clk125m_o" differs only in case from object "clk125M_o" in the same scope File: F:/ARM_FPGA/AC620_AD9226_RGMI/AC620_AD9226_RGMI/rtl/AD9226_RGMII.v Line: 86

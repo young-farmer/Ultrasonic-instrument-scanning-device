@@ -18,7 +18,7 @@
 `define ADC_S_Cnt_Max_H 8'd2	/*ADC采样分频计数器计数最大值的高16位，ADDR = 8'd2*/
 `define ADC_Sample_En	8'd3	/*ADC采样使能寄存器，ADDR = 8'd3*/
 `define UART_En_Tx  		8'd4	/*串口发送使能寄存器，ADDR = 8'd4*/
-`define UART_Baud_Set	8'd5	/*串口发送波特率设置寄存器，ADDR = 8'd5*/
+`define time_count	8'd5	/*串口发送波特率设置寄存器，ADDR = 8'd5*/
 
 `define DDS_En				8'd6	/*DDS使能寄存器，ADDR = 8'd6*/
 `define DDS_Fword_H 		8'd7	/*DDS频率控制字高16位,ADDR = 8'd7*/
