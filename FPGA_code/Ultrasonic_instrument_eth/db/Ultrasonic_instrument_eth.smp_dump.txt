@@ -10,6 +10,29 @@ curr_state.TX_DATA 0 0 1 0 0 0 0 1
 curr_state.TX_FILL_DATA 0 1 0 0 0 0 0 1 
 curr_state.TX_CRC 1 0 0 0 0 0 0 1 
 
+State Machine - |top_file|key_filter:key_filter1|state
+Name state.FILTER1 state.DOWN state.FILTER0 state.IDEL 
+state.IDEL 0 0 0 0 
+state.FILTER0 0 0 1 1 
+state.DOWN 0 1 0 1 
+state.FILTER1 1 0 0 1 
+
+State Machine - |top_file|key_filter:key_filter0|state
+Name state.FILTER1 state.DOWN state.FILTER0 state.IDEL 
+state.IDEL 0 0 0 0 
+state.FILTER0 0 0 1 1 
+state.DOWN 0 1 0 1 
+state.FILTER1 1 0 0 1 
+
+State Machine - |top_file|CMD:CMD|state
+Name state.CMD_TAIL state.CMD_DATAC state.CMD_DATAB state.CMD_DATAA state.CMD_LENGTH state.CMD_HEADER 
+state.CMD_HEADER 0 0 0 0 0 0 
+state.CMD_LENGTH 0 0 0 0 1 1 
+state.CMD_DATAA 0 0 0 1 0 1 
+state.CMD_DATAB 0 0 1 0 0 1 
+state.CMD_DATAC 0 1 0 0 0 1 
+state.CMD_TAIL 1 0 0 0 0 1 
+
 State Machine - |top_file|eth_send_ctrl:eth_send_ctrl|state_0
 Name state_0.0000 state_0.0010 state_0.0001 
 state_0.0000 0 0 0 

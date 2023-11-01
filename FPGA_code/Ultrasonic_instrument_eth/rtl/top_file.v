@@ -1,18 +1,6 @@
 /////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////
-// Company       : 武汉芯路恒科技有限公司
-//                 http://xiaomeige.taobao.com
-// Web           : http://www.corecourse.cn
 // 
-// Create Date   : 2021/07/04 00:00:00
-// Module Name   : ACX720_AD7606_ETH
-// Description   : AD7606数据采集以太网传输系统
-// 
-// Dependencies  : 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
 // 
 /////////////////////////////////////////////////////////////////////////////////
 `timescale 1ns / 1ps
@@ -23,6 +11,13 @@ module top_file(
     eth_rxc,
 	 eth_rxd,
 	 eth_rxdv,
+	 
+	 Rs232_Rx,
+	 Rs232_Tx,
+	 Key_in,
+	 led,
+	 in_a,
+	 in_b,
 	
 	 ad_in1,
     ad_in2,
@@ -37,8 +32,43 @@ module top_file(
 	 eth_txen,
 	 eth_rst_n,
 	 eth_mdc,
-	 eth_mdio
+	 eth_mdio,
+	 
+	 DAC_DIN,
+	 DAC_SCLK,
+	 requs
+	 
 	 );
+	 
+	 ////
+	 wire [11:0]DDS_Data;	/*DDS生成的波形数据*/
+	 output [7:0]DAC_DIN;/*激励输出*/
+	 output DAC_SCLK;/*DA芯片时钟*/
+	 wire m_wr;	/*主机写数据的请求*/
+	 wire [7:0]m_addr;	/*主机写数据的地址*/
+	 wire [15:0]m_wrdata;	/*主机写数据*/	
+	 wire DDS_Flag;	/*DDS采样使能标志*/
+	 wire Data_Flag;	/*数据有效标志（根据用户按键进行选择DDS_Flag 或ADC_Flag）*/
+	 wire Byte_En;	 	/*串口字节数据发送使能信号*/
+	 wire Tx_Done;		/*串口发送字节数据完成标志*/
+	 wire [2:0]Baud_Set; /*波特率设置信号*/
+    output Rs232_Tx;	/*串口发送引脚*/
+	 wire [7:0]position_date;
+	 input Rs232_Rx;	/*串口接收引脚*/
+	 wire Rx_Int;		/*串口接收字节成功标志信号*/
+	 wire [7:0]Rx_Byte;	/*串口接收到的字节数据*/
+	 input [1:0]Key_in;	/*按键输入*/
+	 input in_a;		/*编码器输入*/
+	 input in_b;		/*编码器输入*/	
+	 wire Uart_Flag;	/*数据有效标志（根据用户按键进行选择DDS_Flag 或ADC_Flag）*/
+	 reg Data_Sel;	/*数据选择信号（选择串口发送DDS_Data 或 ADC_Data）*/
+	 reg Flag_Sel;	/*数据有效标志信号选择信号（选择DDS_Flag 或ADC_Flag）*/
+	 wire [1:0]Key_Flag;	/*按键检测成功标志信号*/
+	 wire [1:0]Key_Value;	/*按键检测结果*/
+	 output [7:0]requs;
+	 wire requs1;
+
+	 ////
     //eth receive interface
 	 input eth_rxc; //以太网接收时钟
 	 input [3:0] eth_rxd; //以太网接收数据
@@ -128,7 +158,11 @@ module top_file(
 	 
 	 assign ad_clk1 = Clk;
 	 assign ad_clk2 = Clk;
+	 assign requs = (requs1)?7'd0:7'd200;
 	 
+	 
+	 
+
 	phy_config phy_config_inst(
 	 	.clk(Clk),
 	 	.rst_n(reset_n),
@@ -295,8 +329,102 @@ module top_file(
         .Number_d1(Number_d1),
         .RestartReq_0_d1(RestartReq_0_d1),
         .lenth_val(lenth_val)               
-    );    
+    ); 
 
+
+    //（新）DDS信号发生器模块
+	 DDS DDS(
+		.Clk(Clk),
+		.Rst_n(reset_n),
+		.m_wr(m_wr),
+		.m_addr(m_addr),
+		.m_wrdata(m_wrdata),
+		.DDS_Data(DDS_Data),
+		.DDS_Flag(DDS_Flag),
+		.Uart_Flag(Uart_Flag),
+		.EN_11(requs1)
+	 );	
+
+
+	 encode encode(
+		.Clk(Clk),
+		.Rst_n(Rst_n),
+		.in_a(in_a),
+		.in_b(in_b),
+		.position(position_date)
+		
+	 );
+
+
+/*-----------例化串口字节接收模块-------*/	
+	 Uart_Byte_Rx Uart_Byte_Rx(
+	 	.Clk(Clk),
+		.Rst_n(Rst_n),
+		.Baud_Set(Baud_Set),
+		.Rs232_Rx(Rs232_Rx),
+		.Rx_Byte(Rx_Byte),
+		.Rx_Done(Rx_Int)
+	 );
+	
+/*-----------例化串口接收到的命令解析模块-------*/	
+	 CMD CMD(
+		.Clk(Clk),
+		.Rst_n(Rst_n),
+		.Rx_Byte(Rx_Byte),
+		.Rx_Int(Rx_Int),
+		.m_wr(m_wr),
+		.m_addr(m_addr),
+		.m_wrdata(m_wrdata)
+	 );
+
+/*-----------例化串口字节发送模块-------*/		
+	 UART_Byte_Tx UART_Byte_Tx(	
+		.Clk(Clk),
+		.Rst_n(Rst_n),
+		.Byte_En(Byte_En),
+		.Baud_Set(Baud_Set),
+		.Data_Byte(position_date),
+		.Tx_Done(Tx_Done),
+		.Rs232_Tx(Rs232_Tx)
+	 );
+	
+/*-----------例化串口字节发送控制模块-------*/	
+	 UART_Tx_Ctrl UART_Tx_Ctrl(
+		.Clk(Clk),
+		.Rst_n(reset_n),
+		.m_wr(m_wr),
+		.m_addr(m_addr),
+		.m_wrdata(m_wrdata),
+		.ADC_Flag(Data_Flag),
+		.Byte_En(Byte_En),
+		.Tx_Done(Tx_Done),
+		.Baud_Set(Baud_Set)
+	 );
+	 
+/*-----------例化DAC信号发生器模块-------*/	
+	 DA_chip DA_chip(
+		.Clk(Clk),
+		.DAC_DATA(DDS_Data[11:4]),
+		.DIN(DAC_DIN),
+		.daCLK(DAC_SCLK)
+	 );
+
+/*-----------例化独立按键检测消抖模块-------*/		
+	 key_filter key_filter0(
+			.Clk(Clk),
+			.Rst_n(reset_n),
+			.key_in(Key_in[0]),
+			.key_flag(Key_Flag[0]),
+			.key_state(Key_Value[0])
+	 );
+
+	 key_filter key_filter1(
+			.Clk(Clk),
+			.Rst_n(reset_n),
+			.key_in(Key_in[1]),
+			.key_flag(Key_Flag[1]),
+			.key_state(Key_Value[1])
+	 );
 	 
     eth_udp_tx_gmii eth_udp_tx_gmii(
         .clk125M(gmii_rxc),
@@ -320,4 +448,21 @@ module top_file(
         .gmii_txen     (gmii_txen),
         .gmii_txd      (gmii_txd)
     );
+/*串口待发送字节数据有效标志二选一多路器*/	
+	 assign Data_Flag = Uart_Flag;
+ 
+/*根据用户按键动作选择数据和标志信号多路器通道*/	
+	 always@(posedge Clk or negedge Rst_n)
+	 if(!Rst_n)begin
+	 	 Data_Sel <= 1'b1;
+	 	 Flag_Sel <= 1'b1;
+	 end
+	 else if(Key_Flag && (Key_Value == 2'b01))begin
+	 	 Data_Sel <= ~Data_Sel;
+	 	 Flag_Sel <= ~Flag_Sel;
+	 end
+	 else begin
+	 	 Data_Sel <= Data_Sel;
+	 	 Flag_Sel <= Flag_Sel;	
+	 end
 endmodule

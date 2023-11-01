@@ -4,6 +4,10 @@
 			"name" : "Top",
 			"pins" : [
 				{
+					"name" : "led",
+					"strict" : false
+				},
+				{
 					"name" : "ad_clk1",
 					"strict" : false
 				},
@@ -12,7 +16,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "led",
+					"name" : "led__duplicate",
 					"strict" : false
 				},
 				{
@@ -44,6 +48,50 @@
 					"strict" : false
 				},
 				{
+					"name" : "DAC_DIN[0]",
+					"strict" : false
+				},
+				{
+					"name" : "DAC_DIN[1]",
+					"strict" : false
+				},
+				{
+					"name" : "DAC_DIN[2]",
+					"strict" : false
+				},
+				{
+					"name" : "DAC_DIN[3]",
+					"strict" : false
+				},
+				{
+					"name" : "DAC_DIN[4]",
+					"strict" : false
+				},
+				{
+					"name" : "DAC_DIN[5]",
+					"strict" : false
+				},
+				{
+					"name" : "DAC_DIN[6]",
+					"strict" : false
+				},
+				{
+					"name" : "DAC_DIN[7]",
+					"strict" : false
+				},
+				{
+					"name" : "DAC_SCLK",
+					"strict" : false
+				},
+				{
+					"name" : "requs[3]",
+					"strict" : false
+				},
+				{
+					"name" : "requs[6]",
+					"strict" : false
+				},
+				{
 					"name" : "eth_mdc",
 					"strict" : false
 				},
@@ -52,31 +100,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "Clk",
-					"strict" : false
-				},
-				{
 					"name" : "reset_n",
 					"strict" : false
 				},
 				{
-					"name" : "eth_rxd[0]",
-					"strict" : false
-				},
-				{
-					"name" : "eth_rxd[1]",
-					"strict" : false
-				},
-				{
-					"name" : "eth_rxd[2]",
-					"strict" : false
-				},
-				{
-					"name" : "eth_rxd[3]",
-					"strict" : false
-				},
-				{
-					"name" : "eth_rxdv",
+					"name" : "Clk",
 					"strict" : false
 				},
 				{
@@ -141,6 +169,26 @@
 				},
 				{
 					"name" : "ad_in1[3]",
+					"strict" : false
+				},
+				{
+					"name" : "eth_rxd[3]",
+					"strict" : false
+				},
+				{
+					"name" : "eth_rxd[0]",
+					"strict" : false
+				},
+				{
+					"name" : "eth_rxd[1]",
+					"strict" : false
+				},
+				{
+					"name" : "eth_rxd[2]",
+					"strict" : false
+				},
+				{
+					"name" : "eth_rxdv",
 					"strict" : false
 				},
 				{
